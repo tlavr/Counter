@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import Foundation
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet private weak var counterIncreaseByOneButton: UIButton!
     @IBOutlet private weak var counterLabel: UILabel!
@@ -17,11 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet private weak var zeroButton: UIButton!
     @IBOutlet private weak var logTextView: UITextView!
     private var counterValue: UInt = 0
-    let dateFormatter = DateFormatter()
+    private let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         counterValue = 0
         updateCounterLabelValue()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
@@ -44,7 +42,7 @@ class ViewController: UIViewController {
     @IBAction func counterButtonDidTap(_ sender: Any) {
         counterValue += 1
         updateCounterLabelValue()
-            }
+    }
     
     @IBAction func plusButtonDidTap(_ sender: Any) {
         counterValue += 1
@@ -53,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func minusButtonDidTap(_ sender: Any) {
-        if (counterValue > 0) {
+        if counterValue > 0 {
             counterValue -= 1
             updateCounterLabelValue()
             updateLogTextView(with:"значение изменено на -1")
